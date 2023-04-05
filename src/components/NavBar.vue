@@ -8,10 +8,14 @@
             <router-link class="nav-link px-3" to="/">Inicio</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link px-3" to="/users">Usuarios</router-link>
+            <router-link class="nav-link px-3" to="/products">Productos</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link px-3" to="/about">Acerca</router-link>
+            <router-link class="nav-link px-3" to="/login">Login</router-link>
+          </li>
+          <li class="nav-item">
+            <input type="text" class="m-1 px-4" v-model="input" placeholder="Buscar productos" />
+            <button>Buscar</button>
           </li>
         </ul>
       </div>

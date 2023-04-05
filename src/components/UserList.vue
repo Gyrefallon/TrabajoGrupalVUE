@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div class="row">
+    <img alt="">
+    <div class="row" >
       <div class="col">
         <p class="h3 fw-bold text-success">User List</p>
         <p class="fst-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita hic magni molestiae non
@@ -45,8 +46,17 @@ export default {
   name: "UserList",
   data: function() {
     return {
-      usuarios: UserService.getAllUsers()
+      usuarios: [],
+      errorMessage: ''
     };
+  },
+  created: async function() {
+    try {
+      let response = await UserService.getAllUsers();
+      this.usuarios = response;
+    } catch (error) {
+      this.errorMessage = error;
+    }
   }
 };
 </script>
