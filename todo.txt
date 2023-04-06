@@ -1,0 +1,15 @@
+Vamos a crear una aplicación de vue llamada tienda que permita:
+- Entrar en home y ver una lista de productos
+    Home como modulo principal
+- Buscar productos por nombre
+    Searchbar
+- Añadir producto a un carrito de compra indicando la cantidad.
+
+- Ver el carrito de compra
+    
+- Eliminar productos del carrito
+
+- La lista de productos se consulta a través de un módulo javascript externo que simula una API.
+    consumir API, getter
+- La respuesta del servicio es asíncrona a través de una promesa.
+    async function
