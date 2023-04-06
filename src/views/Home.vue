@@ -13,21 +13,12 @@
     </div>
   </div>
 </template>
-  
-  <script>
-  export default {
-    name: 'HomeRoot',
-  }
-  </script>
-  
-  <style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-  </style>
-  
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: "Home-Root",
+  components: {}
+};
+</script>

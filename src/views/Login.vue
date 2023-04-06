@@ -1,35 +1,33 @@
 <template>
-    <div class="container mt-5">
-    <div class="row">
-      <div class="col text-center">
-        <img alt="Vue logo" src="../assets/logo.png" />
-        <p class="h3 display-3 text-muted">Vue Home</p>
-        <p class="fst-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur autem
-          blanditiis consequuntur
-          dolores, doloribus exercitationem, harum in ipsam iure mollitia saepe soluta tempora vel vero! Adipisci alias
-          blanditiis doloremque eum exercitationem facilis inventore iure nam nihil pariatur quae, quia ratione
-          reprehenderit totam ut, vero voluptatum. Consequuntur deleniti id quos?</p>
-      </div>
+    <div class="login">
+        <h1 class="title">Iniciar Sesión</h1>
+        <form action class="form" @submit.prevent="login">
+            <label class="form-label" for="#email">Email:</label>
+            <input v-model="email" class="form-input" type="email" id="email" required placeholder="Email">
+            <label class="form-label" for="#password">Password:</label>
+            <input v-model="password" class="form-input" type="password" id="password" placeholder="Password">
+            <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+            <input class="form-submit" type="submit" value="Login">
+        </form>
     </div>
-  </div>
 </template>
-  
-  <script>
-  export default {
-    name: 'LoginModule',
-    components: {
+
+<script>
+import { AuthLogin } from "@/services/AuthLogin";
+
+export default {
+    name: "LoginUser",
+    components: {},
+    data: function () {
+        return {
+            usuarios: AuthLogin.getAllUsers(),
+            email: "",
+            password: "",
+
+        };
     }
-  }
-  </script>
-  
-  <style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-  </style>
-  
+};
+</script>
+
+<style scoped></style>
+

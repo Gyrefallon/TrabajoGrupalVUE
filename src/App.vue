@@ -1,11 +1,24 @@
 <template>
-  <NavBar/>
+ <!-- <div class="container">
+    <h2>Fundamentos de Front - End</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia facilis accusantium itaque doloremque pariatur quis id non quae, vitae voluptates iure laudantium voluptate dolores tempora eaque, debitis odit eligendi ad.</p>
+  </div>
+   <HelloWorld />
+  <ComponentDos /> 
+  <Registro /> 
+  <UserList />
+    <AuthUser />-->
+  <NavBar />
+  <router-view />
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import NavBar from './components/NavBar.vue'
-
+// import ComponentDos from './components/ComponentDos.vue'
+// import Registro from './components/Registro.vue'
+// import UserList from './components/UserList.vue'
+//import AuthUser from './components/AuthUser.vue'
+import NavBar from "@/components/NavBar";
 export default {
   name: 'App',
   components: {
