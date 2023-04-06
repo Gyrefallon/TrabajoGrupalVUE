@@ -14,19 +14,47 @@
             <router-link class="nav-link px-3" to="/login">Login</router-link>
           </li>
           <li class="nav-item">
-            <input type="text" class="m-1 px-4" v-model="input" placeholder="Buscar productos" />
-            <button>Buscar</button>
+          <input id="search" type="search" v-model="searchTerm" @keyup="search" />
+          <label class="label-icon" for="search"><i class="material-icons">Buscar</i></label>
+          <i class="material-icons">close</i>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div class="container">
+    <div v-for="(item, index) in items" :key="index">
+      <p>{{ item.name }}</p>
+    </div>
+  </div>
 </template>
 
 <script>
+import jsonData from '@/assets/data.json'
+
 export default {
-  name: "NavBar"
-};
+  name: "NavBar",
+  data() {
+    return {
+      searchTerm: '',
+      items: []
+    }
+  },
+  created() {
+    this.items = jsonData
+  },
+  methods: {
+    async search() {
+      try {
+        const filteredItems = this.items.filter(item => item.nombre.includes(this.searchTerm))
+        this.items = filteredItems
+        console.log(this.items);
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>

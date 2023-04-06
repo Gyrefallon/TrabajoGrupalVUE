@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import { AuthLogin } from "@/services/AuthLogin";
+import { UserService } from "@/services/auth.js";
 
 export default {
     name: "LoginUser",
     components: {},
     data: function () {
         return {
-            usuarios: AuthLogin.getAllUsers(),
+            usuarios: UserService.getAllUsers(),
             email: "",
             password: "",
 
