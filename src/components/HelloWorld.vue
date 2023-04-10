@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template> 
   <div class="hello">
     <h1>{{ msg }}</h1>
@@ -27,32 +28,47 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+=======
+<template>
+  <div class="container">
+    <h2>Nuevo Componente</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="card">
+          <div class="card-body">
+            <span class="display-3">Contador : {{ this.numero }}</span>
+            <div class="row">
+              <button class="btn btn-success m-1" @click="incrementar()">Incrementar</button>
+              <button class="btn btn-warning m-1" @click="decrementar()">Decrementar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+>>>>>>> master
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  data: function(){
+    return{
+      numero: 0
+    }
+  },
+  methods: {
+    incrementar() {
+      this.numero = this.numero + 1
+    },
+    decrementar() {
+      this.numero = this.numero - 1
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
