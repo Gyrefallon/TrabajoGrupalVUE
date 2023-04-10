@@ -1,51 +1,3 @@
-<<<<<<< HEAD
-<!-- <template>
- <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <router-view />
-  <login/>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-    
-=======
-<template>
- <!-- <div class="container">
-    <h2>Fundamentos de Front - End</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia facilis accusantium itaque doloremque pariatur quis id non quae, vitae voluptates iure laudantium voluptate dolores tempora eaque, debitis odit eligendi ad.</p>
-  </div>
-   <HelloWorld />
-  <ComponentDos /> 
-  <Registro /> 
-  <UserList />
-    <AuthUser />-->
-  <NavBar />
-  <router-view />
-</template>
-
-<script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import ComponentDos from './components/ComponentDos.vue'
-// import Registro from './components/Registro.vue'
-// import UserList from './components/UserList.vue'
-//import AuthUser from './components/AuthUser.vue'
-import NavBar from "@/components/NavBar";
-export default {
-  name: 'App',
-  components: {
-    NavBar
->>>>>>> master
-  }
-}
-</script> -->
-
 <template>
   <div v-if="!loggin" class="container">
     <div class="row mt-5 justify-content-center">
@@ -77,7 +29,7 @@ export default {
 </template>
 
 <script>
-import { AuthLogin} from "@/services/AuthLogin";
+import { AuthLogin } from "@/services/AuthLogin";
 
 export default {
   name: 'App',
@@ -93,7 +45,7 @@ export default {
   },
   created: async function () {
     try {
-      let response = await AuthLogin.getAllUsuarios();
+      let response = await UserService.getAllUsuarios();
       this.usuarios = response;
     } catch (error) {
       this.errorMessage = error;
@@ -122,14 +74,3 @@ export default {
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
