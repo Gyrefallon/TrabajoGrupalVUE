@@ -4,7 +4,7 @@
             <div class="col-md-3">
                 <div class="card shadow-lg">
                     <div class="card-header bg-success text-white">
-                        <p class="h3">Ingreso</p>
+                        <p class="h3">Iniciar sesión</p>
                     </div>
                     <div class="card-body bg-light">
                         <form @submit.prevent="valida()">

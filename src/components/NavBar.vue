@@ -1,11 +1,11 @@
 <template>
   <nav class="navbar navbar-dark bg-success navbar-expand-sm">
     <div class="container">
-      <router-link class="navbar-brand" to="/">Vue Router</router-link>
+      <router-link class="navbar-brand" to="/">CachuTech</router-link>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link px-3" to="/">Inicio</router-link>
+            <router-link class="nav-link px-3" to="/home">Inicio</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link px-3" to="/products">Productos</router-link>
