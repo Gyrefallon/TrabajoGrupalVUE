@@ -1,4 +1,9 @@
 <template>
+		<!-- Buscar productos    -->
+		<div class="seccion__buscar">
+				<input id="inputBuscador" v-model="inputBuscador" v-on:keyup.enter="buscarProducto()" type="Buscar" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon"  />
+				<button type="button" class="btn-buscar" v-on:click="buscarProducto()">Buscar</button>
+			</div>
     <div class="container">
 			<div class="row">
 				<div v-for="fila in productos" :key="fila.nombre" class="card col-md-2" style="width: 18rem;">
@@ -21,9 +26,29 @@ export default {
 	name: "ProductsCards",
 	data: function() {
 		return {
-			productos: Products.getAllProducts()
+			productos: Products.getAllProducts(),
+			productosTotal: Products.getAllProducts(),
+			inputBuscador: '',
 		};
+	},
+	methods: {
+	buscarProducto: function () {
+		if (this.inputBuscador === '') {
+			this.productos = this.productosTotal;
+		} else {
+
+			const searchTerm = this.inputBuscador.toLowerCase();
+			this.productos = this.productosTotal.filter(element => {
+				const name1 = element.nombre.toLowerCase();
+				const description1 = element.descripcion.toLowerCase();
+
+
+				return name1.includes(searchTerm) || description1.includes(searchTerm);
+			})
+		}
+
 	}
+}
 };
 </script>
   
