@@ -1,5 +1,9 @@
 export class UserService {
-    static users = []
+    static users = [{
+      id: 1,
+      email: 'john@example.com',
+      password: 'password'}
+    ]
 
 
     static getAllUsers() {

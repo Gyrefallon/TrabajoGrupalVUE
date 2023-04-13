@@ -7,9 +7,6 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link px-3" to="/">Inicio</router-link>
-          </li>
-          <li class="nav-item">
             <router-link class="nav-link px-3" to="/products">Productos</router-link>
           </li>
           <li class="nav-item">
@@ -21,7 +18,7 @@
           <i class="material-icons">Buscar</i></label>
           <i class="material-icons">close</i>
           </li>
-          
+
         </ul>
         
       </div>

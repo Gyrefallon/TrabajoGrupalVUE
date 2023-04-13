@@ -20,6 +20,8 @@
 import {mapState, mapMutations} from 'vuex'
 import { Products } from "@/services/products.js";
 import CarroCompra from "@/components/CarroCompras.vue";
+import NavBar from "@/components/NavBar.vue"
+
 
 export default {
 	name: "ProductsCards",
@@ -29,7 +31,8 @@ export default {
 		};
 	},
 	components: {
-		CarroCompra
+		CarroCompra,
+		NavBar
 	},
 	computed: {
     ...mapState(['carro', 'sumaTotal']),
