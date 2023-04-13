@@ -71,7 +71,7 @@ export default {
     isLoggedIn() {
       return this.$store.state.isLoggedIn
     },
-    ...mapMutations(['mostrarCarro']),
+    ...mapMutations(['mostrarCarro', 'contadorProductos']),
     ...mapState(['contadorProductos'])
   }
 }
