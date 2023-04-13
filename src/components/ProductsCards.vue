@@ -1,5 +1,6 @@
 <template>
-	<NavBar/>
+	<NavBar @show-logout-modal="showLogoutConfirmation = true"/>
+	<LogoutConfirmation v-if="showLogoutConfirmation" @logout="handleLogout" />
     <div class="container">
 			<div class="row">
 				<div v-for="fila in productos" :key="fila.id" class="card col-md-3">
@@ -22,18 +23,21 @@ import {mapState, mapMutations} from 'vuex'
 import { Products } from "@/services/products.js";
 import CarroCompra from "@/components/CarroCompras.vue";
 import NavBar from "@/components/NavBar.vue"
+import LogoutConfirmation from '@/components/LogoutConfirmation.vue'
 
 
 export default {
 	name: "ProductsCards",
 	data: function() {
 		return {
-			productos: Products.getAllProducts()
-		};
+			productos: Products.getAllProducts(),
+			showLogoutConfirmation: false
+		}
 	},
 	components: {
 		CarroCompra,
-		NavBar
+		NavBar,
+		LogoutConfirmation
 	},
 	computed: {
     ...mapState(['carro']),
@@ -41,7 +45,11 @@ export default {
      },
      methods: {
         ...mapMutations(['anadirProducto']),
+	handleLogout() {
+      this.$router.push('/')
+    }
     },
+	
 };
 </script>
   

@@ -12,8 +12,8 @@
           <label class="label-icon" for="search"><i class="material-icons">Buscar</i></label>
           <i class="material-icons">close</i>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link px-3" to="/">Logout</router-link>
+          <li class="nav-item" v-if="isLoggedIn">
+            <router-link class="nav-link px-3" to="/" @click.prevent="showLogoutModal">Logout</router-link>
           </li>
         </ul>
       </div>
@@ -49,6 +49,14 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    },
+    showLogoutModal() {
+      this.$emit('show-logout-modal')
+    }
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn
     }
   }
 }
