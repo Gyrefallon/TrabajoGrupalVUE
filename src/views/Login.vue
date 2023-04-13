@@ -66,7 +66,7 @@ export default {
         this.errorMessage = 'Credenciales incorrectas'
         logon = false
       }if(logon){
-        alert("")
+        alert("Bienvenido")
         router.push("/products")
       }else{
         alert("Usuario y/o contraseña erroneos")
