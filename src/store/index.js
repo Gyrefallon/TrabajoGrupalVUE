@@ -43,7 +43,6 @@ export default createStore({
         },
 
         mostrarCarro(state) {
-            console.log('funciona')
             state.carroVisible = !state.carroVisible
         },
 
