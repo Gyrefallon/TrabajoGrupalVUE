@@ -10,12 +10,15 @@ const routes = [
     path: "/",
     name: "LoginRoot",
     component: Login,
+    alias: "/login"
+
   },
   {
     path: "/products",
     name: "ProductsCards",
     component: ProductsCards
   },
+
   // {
   //   path: "/users/:userId",
   //   name: "UserDetails",

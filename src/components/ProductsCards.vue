@@ -5,7 +5,7 @@
 					<div class="card-body">
 						<img :src= "fila.imagen" class="card-img-top" alt="placa">
 							<h2 class="card-title">{{ fila.nombre }}</h2>
-							<h6 class="card-text">Precio: {{ fila.precio }}</h6>
+							<h6 class="card-text">Precio: {{ fila.precio.toLocaleString('clp') }}</h6>
 							<h6 class="card-text">Stock: {{ fila.stock }}</h6>
 							<a class="btn btn-primary" @click="anadirProducto(fila)">Añadir al Carrito</a>
 					</div>
@@ -20,7 +20,6 @@
 import {mapState, mapMutations} from 'vuex'
 import { Products } from "@/services/products.js";
 import CarroCompra from "@/components/CarroCompras.vue";
-import NavBar from "@/components/NavBar.vue"
 
 
 export default {
@@ -32,7 +31,6 @@ export default {
 	},
 	components: {
 		CarroCompra,
-		NavBar
 	},
 	computed: {
     ...mapState(['carro', 'sumaTotal']),

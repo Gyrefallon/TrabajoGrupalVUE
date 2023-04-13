@@ -19,9 +19,9 @@
         <ul v-for="producto in carro" :key="producto.id" >
             <li>{{ producto.nombre }}</li>
             <li>{{ producto.cantidad }}</li>
-            <button @click="eliminarProducto(producto)">&#128465;</button>
+            <button @click="eliminarProducto(producto)"><i class="fa-solid fa-trash-can"></i></button>
         </ul>
-        <h3 class="suma">Suma Total: {{ sumaTotal.toLocaleString('clp') }}</h3>
+        <h3 class="suma">Total de la compra: ${{ sumaTotal.toLocaleString('clp') }}</h3>
         </div>
 
       </div>
@@ -84,18 +84,32 @@ h2 {
 #carro-de-compras ul {
     list-style: none;
     display: grid;
-    align-items: center;
     grid-template-columns: 2fr 1fr 1fr;
+    text-align: center;
+    align-items: center;
 }
 
 #carro-de-compras ul li {
-    margin: 5px;
     font-size: .8rem;
+    margin: 1em;
+}
+
+.modal-title {
+    text-align: center!important;
+    display: block;
 }
 
 #carro-de-compras h3 {
     margin-top: 1em;
     font-size: 1.2rem;
+}
+.fa-trash-can:hover {
+    color: #00f3ae;
+}
+
+.suma {
+    font-size: 1rem!important;
+    font-weight: 700;
 }
 
 .titulos-carro {
