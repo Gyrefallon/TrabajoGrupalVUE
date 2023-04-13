@@ -9,9 +9,6 @@
           <li class="nav-item">
             <router-link class="nav-link px-3" to="/products">Productos</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link px-3" to="/login">Login</router-link>
-          </li>
           <li class="nav-item" v-if="isLoggedIn">
             <router-link class="nav-link px-3" to="/" @click.prevent="showLogoutModal">Logout</router-link>
           </li>
@@ -44,6 +41,7 @@ import {mapState, mapMutations} from 'vuex'
 
 export default {
   name: "NavBar",
+  emits:['showLogoutModal'],
   data() {
     return {
       searchTerm: '',
