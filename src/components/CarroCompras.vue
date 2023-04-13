@@ -1,8 +1,17 @@
 <template>
-    <section id="carro-de-compras">
-        <h2>Carro de Compras</h2>
-
-        <div class="titulos-carro">
+    <section id="carro-de-compras" >
+         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Carro de Compras</h1>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p v-if="carro.length==0"> El carro está vacío</p>
+        <div v-else>
+            <div class="titulos-carro">
             <div>Producto</div>
             <div>Cantidad</div>
         </div>
@@ -10,9 +19,18 @@
         <ul v-for="producto in carro" :key="producto.id" >
             <li>{{ producto.nombre }}</li>
             <li>{{ producto.cantidad }}</li>
-            <button @click="eliminarProducto(producto)">&#128465;</button>
+            <button @click="eliminarProducto(producto)"><i class="fa-solid fa-trash-can"></i></button>
         </ul>
-        <h3>Suma Total: {{ sumaTotal.toLocaleString('clp') }}</h3>
+        <h3 class="suma">Total de la compra: ${{ sumaTotal.toLocaleString('clp') }}</h3>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
     </section>
 </template>
 <script>
@@ -28,8 +46,7 @@ export default {
         }
     },
     computed: {
-    ...mapState(['carro']),
-    ...mapState(['sumaTotal'])    
+    ...mapState(['carro', 'sumaTotal', 'carroVisible']),
      },
      methods: {
         ...mapMutations(['eliminarProducto'])
@@ -68,12 +85,32 @@ h2 {
     list-style: none;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
+    text-align: center;
+    align-items: center;
 }
 
 #carro-de-compras ul li {
-    margin: 5px;
+    font-size: .8rem;
+    margin: 1em;
 }
 
+.modal-title {
+    text-align: center!important;
+    display: block;
+}
+
+#carro-de-compras h3 {
+    margin-top: 1em;
+    font-size: 1.2rem;
+}
+.fa-trash-can:hover {
+    color: #00f3ae;
+}
+
+.suma {
+    font-size: 1rem!important;
+    font-weight: 700;
+}
 
 .titulos-carro {
     font-weight: 700;
@@ -83,4 +120,5 @@ h2 {
     grid-template-columns: 2fr 1fr 1fr;
     gap: 5px;
 }
+
 </style>

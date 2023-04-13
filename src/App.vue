@@ -8,7 +8,8 @@
   <Registro /> 
   <UserList />
     <AuthUser />-->
-  <router-view />
+    <NavBar/>
+    <router-view />
 </template>
 
 <script>
@@ -17,11 +18,11 @@
 // import Registro from './components/Registro.vue'
 // import UserList from './components/UserList.vue'
 //import AuthUser from './components/AuthUser.vue'
-// import NavBar from "@/components/NavBar";
+import NavBar from "@/components/NavBar";
 export default {
   name: 'App',
   components: {
-    // NavBar
+    NavBar
   }
 }
 </script>
