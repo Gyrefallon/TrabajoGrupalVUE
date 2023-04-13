@@ -8,8 +8,11 @@
   <Registro /> 
   <UserList />
     <AuthUser />-->
-  <NavBar />
-  <router-view />
+    <NavBar />
+    <transition name="fade">
+      <router-view />
+    </Transition>
+  
 </template>
 
 <script>
@@ -34,6 +37,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

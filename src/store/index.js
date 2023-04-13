@@ -14,6 +14,8 @@ export default createStore({
 
         anadirProducto(state, payload){
 
+            
+
             const chequearExistencia = state.carro.some((element) => { 
                 return payload.id === element.id
             })
