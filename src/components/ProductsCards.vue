@@ -1,4 +1,5 @@
 <template>
+	<NavBar/>
     <div class="container">
 			<div class="row">
 				<div v-for="fila in productos" :key="fila.id" class="card col-md-2" style="width: 18rem;">
@@ -21,6 +22,8 @@
 import {mapState, mapMutations} from 'vuex'
 import { Products } from "@/services/products.js";
 import CarroCompra from "@/components/CarroCompras.vue";
+import NavBar from "@/components/NavBar.vue"
+
 
 export default {
 	name: "ProductsCards",
@@ -30,7 +33,8 @@ export default {
 		};
 	},
 	components: {
-		CarroCompra
+		CarroCompra,
+		NavBar
 	},
 	computed: {
     ...mapState(['carro']),

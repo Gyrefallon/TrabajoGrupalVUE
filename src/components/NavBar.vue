@@ -5,18 +5,15 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link px-3" to="/">Inicio</router-link>
-          </li>
-          <li class="nav-item">
             <router-link class="nav-link px-3" to="/products">Productos</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link px-3" to="/login">Login</router-link>
           </li>
           <li class="nav-item">
           <input id="search" type="search" v-model="searchTerm" @keyup="search" />
           <label class="label-icon" for="search"><i class="material-icons">Buscar</i></label>
           <i class="material-icons">close</i>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link px-3" to="/">Logout</router-link>
           </li>
         </ul>
       </div>
