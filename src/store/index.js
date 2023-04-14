@@ -7,28 +7,25 @@ export default createStore({
         sumaTotal: 0,
         contadorProductos: 0,
         carroVisible: false,
+        isLoggedin : false
     },
-
     mutations: {
         // agregarProducto(state, payload){
         //     state.carro.push(payload)
         // }
-
         anadirProducto(state, payload){
-            const chequearExistencia = state.carro.some((element) => { 
+            const chequearExistencia = state.carro.some((element) => {
                 return payload.id === element.id
             })
-            
             if(chequearExistencia){
-                payload.cantidad ++ 
+                payload.cantidad ++
                 state.sumaTotal += +payload.precio
             }else{
-                state.carro.push(payload) 
+                state.carro.push(payload)
                 state.sumaTotal += +payload.precio
             }
             state.contadorProductos++
         },
-
         eliminarProducto(state, payload){
             // console.log(state.carro)
             // state.carro = state.carro.filter((element)=>{
@@ -41,23 +38,19 @@ export default createStore({
             state.contadorProductos -= payload.cantidad
             payload.cantidad = 1;
         },
-
         mostrarCarro(state) {
             state.carroVisible = !state.carroVisible
         },
-
         buscarAlgo(state, payload) {
             console.log(state.carroVisible)
             console.log(payload.target.value)
+        },
+        setIsLoggedIn(state, value) {
+            state.isLoggedIn = value
         }
-        
     },
-    
     action: {
-
-    },    
+    },
     modules: {
-
     }
-
 })

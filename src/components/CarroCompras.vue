@@ -19,14 +19,14 @@
         <ul v-for="producto in carro" :key="producto.id" >
             <li>{{ producto.nombre }}</li>
             <li>{{ producto.cantidad }}</li>
-            <button @click="eliminarProducto(producto)"><i class="fa-solid fa-trash-can"></i></button>
+            <button @click="eliminarProducto(producto)" class="trash"><i class="fa-solid fa-trash-can"></i></button>
         </ul>
         <h3 class="suma">Total de la compra: ${{ sumaTotal.toLocaleString('clp') }}</h3>
         </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -63,9 +63,6 @@ export default {
     margin: 0;
 }
 
-button {
-    all: unset;
-}
 
 h2 {
     font-size: .9rem;
@@ -102,6 +99,10 @@ h2 {
 #carro-de-compras h3 {
     margin-top: 1em;
     font-size: 1.2rem;
+}
+
+.trash{
+    all:unset
 }
 .fa-trash-can:hover {
     color: #00f3ae;

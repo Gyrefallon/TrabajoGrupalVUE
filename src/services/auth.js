@@ -1,7 +1,7 @@
 export class UserService {
     static users = [{
       id: 1,
-      email: 'john@example.com',
+      email: 'a@a.com',
       password: 'password'}
     ]
 

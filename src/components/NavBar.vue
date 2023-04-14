@@ -9,22 +9,21 @@
           <li class="nav-item">
             <router-link class="nav-link px-3" to="/products">Productos</router-link>
           </li>
-          <li class="nav-item" v-if="isLoggedIn">
-            <router-link class="nav-link px-3" to="/" @click.prevent="showLogoutModal">Logout</router-link>
+          <li class="nav-item" v-if="isLoggedIn" >
+            <a data-bs-toggle="modal" class="btn btn-danger" data-bs-target="#logout">Logout</a>
           </li>
-
+          <li v-else class="nav-item">
+            <router-link class="nav-link px-3" to="/">Inicio de sesión</router-link>
+          </li>
         </ul>
-        
       </div>
       <button type="button" class="btn position-relative" @click="mostrarCarro" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         <i class="fa-solid fa-cart-shopping"></i>
   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-         {{ contadorProductos }}
+        {{ contadorProductos }}
   </span>
 </button>
-      
     </div>
-    
   </nav>
   <div class="container">
     <div v-for="(item, index) in items" :key="index">
@@ -36,16 +35,17 @@
 <script>
 import jsonData from '@/assets/data.json'
 import {mapState, mapMutations} from 'vuex'
-
-
+import router from "../router"
 
 export default {
   name: "NavBar",
-  emits:['showLogoutModal'],
+  components: {
+  },
   data() {
     return {
       searchTerm: '',
       items: [],
+      showLogoutConfirmation: false
     }
   },
   created() {
@@ -62,7 +62,11 @@ export default {
       }
     },
     showLogoutModal() {
-      this.$emit('show-logout-modal')
+      alert('asdfas');
+      this.showLogoutConfirmation = !this.showLogoutConfirmation
+    },
+    handleLogout() {
+      router.push('/')
     }
   },
   computed: {
@@ -70,7 +74,8 @@ export default {
       return this.$store.state.isLoggedIn
     },
     ...mapMutations(['mostrarCarro', 'contadorProductos']),
-    ...mapState(['contadorProductos'])
+    ...mapState(['contadorProductos']),
+    ...mapState(['isLoggedIn'])
   }
 }
 </script>
@@ -83,7 +88,7 @@ export default {
 
   .bg-success {
     background-color: rgb(33, 33, 33)!important;
-  } 
+  }
 
   .btn {
     color: white
@@ -91,5 +96,12 @@ export default {
 
   .btn:hover {
     color: #00f3ae;
+  }
+  a{
+    cursor:pointer;
+    color:white
+  }
+  a:hover{
+    color:gray
   }
 </style>

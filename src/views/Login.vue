@@ -28,6 +28,7 @@
 <script>
 import { UserService } from "@/services/auth.js";
 import router from "../router"
+import { mapMutations } from 'vuex'
 
 export default {
     name: "LoginUser",
@@ -51,6 +52,7 @@ export default {
         }
     },
     methods:{
+        ...mapMutations(['setIsLoggedIn']),
     valida : function (){
         let logon = false
         let encontrar = this.usuarios.map(element => element.email).indexOf(this.user.email);
@@ -66,12 +68,14 @@ export default {
         this.errorMessage = 'Credenciales incorrectas'
         logon = false
       }if(logon){
-        alert("Bienvenido")
-        router.push("/products")
+        alert("Bienvenido");
+        router.push("/products");
+        this.setIsLoggedIn(true);
       }else{
         alert("Usuario y/o contraseña erroneos")
       }
-    }
+    },
+
   }
 };
 </script>
