@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import { Products } from "@/services/products.js";
+
 
 export default createStore({
 
@@ -7,26 +9,27 @@ export default createStore({
         sumaTotal: 0,
         contadorProductos: 0,
         carroVisible: false,
-        isLoggedin : false
+        isLoggedin: false,
+        productos: Products.getAllProducts(),
     },
     mutations: {
         // agregarProducto(state, payload){
         //     state.carro.push(payload)
         // }
-        anadirProducto(state, payload){
+        anadirProducto(state, payload) {
             const chequearExistencia = state.carro.some((element) => {
                 return payload.id === element.id
             })
-            if(chequearExistencia){
-                payload.cantidad ++
+            if (chequearExistencia) {
+                payload.cantidad++
                 state.sumaTotal += +payload.precio
-            }else{
+            } else {
                 state.carro.push(payload)
                 state.sumaTotal += +payload.precio
             }
             state.contadorProductos++
         },
-        eliminarProducto(state, payload){
+        eliminarProducto(state, payload) {
             // console.log(state.carro)
             // state.carro = state.carro.filter((element)=>{
             //     return element.id != payload.id;
@@ -47,6 +50,19 @@ export default createStore({
         },
         setIsLoggedIn(state, value) {
             state.isLoggedIn = value
+        },
+        buscarProducto(state, payload) {
+            if (payload.searchTerm == '') {
+                state.productos = Products.getAllProducts()
+            } else {
+                const inputBuscador = payload.searchTerm.toLowerCase();
+                const productos = Products.getAllProducts();
+                const productosFiltrados = productos.filter(producto => {
+                    const name1 = producto.nombre.toLowerCase();
+                    return name1.includes(inputBuscador)
+                });
+                state.productos = productosFiltrados
+            }
         }
     },
     action: {

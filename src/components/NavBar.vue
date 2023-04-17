@@ -15,6 +15,12 @@
           <li v-else class="nav-item">
             <router-link class="nav-link px-3" to="/">Inicio de sesión</router-link>
           </li>
+          <li class="nav-item">
+            <input type="search" @keyup.enter = "buscarProducto" v-model="searchTerm" placeholder="Buscar producto">
+            <button id="boton-buscador" class="btn" @click="buscarProducto">
+              <i class="fa fa-search"></i>
+            </button>
+          </li>
         </ul>
       </div>
       <button type="button" class="btn position-relative" @click="mostrarCarro" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -73,7 +79,7 @@ export default {
     isLoggedIn() {
       return this.$store.state.isLoggedIn
     },
-    ...mapMutations(['mostrarCarro', 'contadorProductos']),
+    ...mapMutations(['mostrarCarro', 'contadorProductos', 'buscarProducto']),
     ...mapState(['contadorProductos']),
     ...mapState(['isLoggedIn'])
   }

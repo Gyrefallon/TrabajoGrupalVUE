@@ -49,7 +49,7 @@ export default {
     ...mapState(['carro', 'sumaTotal', 'carroVisible']),
      },
      methods: {
-        ...mapMutations(['eliminarProducto'])
+        ...mapMutations(['eliminarProducto', 'retornarProductos'])
     },
     watch: {},
     props: {}
