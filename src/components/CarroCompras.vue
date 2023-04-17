@@ -21,7 +21,7 @@
             <li>{{ producto.cantidad }}</li>
             <button @click="eliminarProducto(producto)" class="trash"><i class="fa-solid fa-trash-can"></i></button>
         </ul>
-        <h3 class="suma">Total de la compra: ${{ sumaTotal.toLocaleString('clp') }}</h3>
+        <h3 class="suma">Total de la compra: ${{ sumaTotal.toLocaleString('es') }}</h3>
         </div>
 
       </div>
@@ -29,6 +29,8 @@
         <button v-if="carro.length>0" type="button" class="btn btn-secondary" @click="vaciarCarro">Vaciar Carro</button>
         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
       </div>
+
+
     </div>
   </div>
 </div>

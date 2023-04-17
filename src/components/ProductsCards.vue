@@ -3,18 +3,36 @@
 	<LogoutConfirmation/>
     <div class="container">
 			<div class="row g-3">
-				<div v-for="fila in productos" :key="fila.id" class="card col-md-3">
-					<div class="card-body">
+				<div v-for="fila in productos" :key="fila.id" class="card col-md-3" @click="mostrarDescripcion(fila)" >
+					<div class="card-body" data-bs-toggle="modal" data-bs-target="#descripcionProducto">
 						<img :src= "fila.imagen" class="card-img-top" alt="placa">
 							<h2 class="card-title">{{ fila.nombre }}</h2>
-							<h6 class="card-text">Precio: {{ fila.precio.toLocaleString('clp') }}</h6>
+							<h6 class="card-text">Precio: ${{ parseInt(fila.precio).toLocaleString('es') }}</h6>
 							<h6 class="card-text">Stock: {{ fila.stock }}</h6>
-							<a class="btn btn-primary" @click="anadirProducto(fila)">Añadir al Carrito</a>
 					</div>
+					<a class="btn btn-primary" @click="anadirProducto(fila)">Añadir al Carrito</a>
 				</div>
 			</div>
     </div>
 	<CarroCompra/>
+	<!-- Modal -->
+	<div class="modal fade" id="descripcionProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h1 class="modal-title fs-5" id="exampleModalLabel"> {{ tituloActual }}</h1>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			{{ descripcionActual }}
+
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+		</div>
+		</div>
+	</div>
+	</div>
 </template>
 
 <script>
@@ -32,11 +50,21 @@ export default {
 		NavBar,
 		LogoutConfirmation
 	},
+	data() {
+		return {
+			descripcionActual: '',
+			tituloActual: '',
+		}
+	},
 	computed: {
     ...mapState(['carro', 'sumaTotal', 'productos']),
      },
      methods: {
         ...mapMutations(['anadirProducto']),
+		mostrarDescripcion(producto) {
+			this.descripcionActual = producto.descripcion
+			this.tituloActual = producto.nombre
+		}
     },
 	
 };
