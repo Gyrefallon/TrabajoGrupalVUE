@@ -45,8 +45,7 @@ import router from "../router"
 
 export default {
   name: "NavBar",
-  components: {
-  },
+  emits: ['showLogoutModal'],
   data() {
     return {
       searchTerm: '',
@@ -109,5 +108,9 @@ export default {
   }
   a:hover{
     color:gray
+  }
+
+  .btn-danger {
+    margin-right: 1em;
   }
 </style>

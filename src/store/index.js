@@ -63,6 +63,14 @@ export default createStore({
                 });
                 state.productos = productosFiltrados
             }
+        },
+        vaciarCarro(state) {
+            state.carro = [];
+            state.productos.forEach(element => {
+                element.cantidad = 1;
+            });
+            
+            state.contadorProductos = 0;
         }
     },
     action: {
