@@ -89,11 +89,21 @@ export class Products {
       "etiqueta": "WD UNIDAD DE ESTADO SOLIDO",
       "imagen": "https://www.wei.cl/images/products/632C84116Bg.jpg" ,
       "cantidad": "1"
-    }
+    },
+    {
+      "id": "A10",
+      "nombre": "UNIDAD DE ESTADO SOLIDO WD GREEN 1 TB",
+      "descripcion": "Producto Stock",
+      "precio": "55990",
+      "stock": "0",
+      "etiqueta": "WD UNIDAD DE ESTADO SOLIDO",
+      "imagen": "https://www.wei.cl/images/products/632C84116Bg.jpg" ,
+      "cantidad": "1"
+    },
   ];
 
     static getAllProducts() {
-    return this.products;
+    return this.products.filter(product => product.stock > 0);
   }
 
 }

@@ -26,6 +26,7 @@
 
       </div>
       <div class="modal-footer">
+        <button v-if="carro.length>0" type="button" class="btn btn-secondary" @click="vaciarCarro">Vaciar Carro</button>
         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
@@ -49,7 +50,7 @@ export default {
     ...mapState(['carro', 'sumaTotal', 'carroVisible']),
      },
      methods: {
-        ...mapMutations(['eliminarProducto', 'retornarProductos'])
+        ...mapMutations(['eliminarProducto', 'retornarProductos', 'vaciarCarro'])
     },
     watch: {},
     props: {}

@@ -68,6 +68,14 @@ export default createStore({
             }}catch(error){
                 console.log(error)
             }
+        },
+        vaciarCarro(state) {
+            state.carro = [];
+            state.productos.forEach(element => {
+                element.cantidad = 1;
+            });
+            
+            state.contadorProductos = 0;
         }
     },
     action: {
