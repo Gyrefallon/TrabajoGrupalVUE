@@ -41,7 +41,7 @@
 <script>
 import jsonData from '@/assets/data.json'
 import {mapState, mapMutations} from 'vuex'
-import router from "../router"
+
 
 export default {
   name: "NavBar",
@@ -66,13 +66,6 @@ export default {
       } catch (error) {
         console.error(error)
       }
-    },
-    showLogoutModal() {
-      alert('asdfas');
-      this.showLogoutConfirmation = !this.showLogoutConfirmation
-    },
-    handleLogout() {
-      router.push('/')
     }
   },
   computed: {

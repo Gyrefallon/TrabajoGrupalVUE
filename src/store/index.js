@@ -16,8 +16,8 @@ export default createStore({
         // agregarProducto(state, payload){
         //     state.carro.push(payload)
         // }
-        anadirProducto(state, payload) {
-            const chequearExistencia = state.carro.some((element) => {
+        async anadirProducto(state, payload) {
+            try{            const chequearExistencia = state.carro.some((element) => {
                 return payload.id === element.id
             })
             if (chequearExistencia) {
@@ -27,7 +27,9 @@ export default createStore({
                 state.carro.push(payload)
                 state.sumaTotal += +payload.precio
             }
-            state.contadorProductos++
+            state.contadorProductos++}
+            catch(error){
+                console.log(error)}
         },
         eliminarProducto(state, payload) {
             // console.log(state.carro)
@@ -51,7 +53,8 @@ export default createStore({
         setIsLoggedIn(state, value) {
             state.isLoggedIn = value
         },
-        buscarProducto(state, payload) {
+        async buscarProducto(state, payload) {
+            try{
             if (payload.searchTerm == '') {
                 state.productos = Products.getAllProducts()
             } else {
@@ -62,6 +65,8 @@ export default createStore({
                     return name1.includes(inputBuscador)
                 });
                 state.productos = productosFiltrados
+            }}catch(error){
+                console.log(error)
             }
         }
     },
