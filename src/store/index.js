@@ -71,6 +71,7 @@ export default createStore({
         },
         vaciarCarro(state) {
             state.carro = [];
+            state.sumaTotal = 0,
             state.productos.forEach(element => {
                 element.cantidad = 1;
             });
