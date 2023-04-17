@@ -20,7 +20,6 @@
 <script>
 
 import {mapState, mapMutations} from 'vuex'
-import { Products } from "@/services/products.js";
 import CarroCompra from "@/components/CarroCompras.vue";
 import NavBar from "@/components/NavBar.vue";
 import LogoutConfirmation from '@/components/LogoutConfirmation.vue'
@@ -28,18 +27,13 @@ import LogoutConfirmation from '@/components/LogoutConfirmation.vue'
 
 export default {
 	name: "ProductsCards",
-	data: function() {
-		return {
-			productos: Products.getAllProducts(),
-		}
-	},
 	components: {
 		CarroCompra,
 		NavBar,
 		LogoutConfirmation
 	},
 	computed: {
-    ...mapState(['carro', 'sumaTotal']),
+    ...mapState(['carro', 'sumaTotal', 'productos']),
      },
      methods: {
         ...mapMutations(['anadirProducto']),

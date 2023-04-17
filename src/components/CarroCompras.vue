@@ -49,7 +49,7 @@ export default {
     ...mapState(['carro', 'sumaTotal', 'carroVisible']),
      },
      methods: {
-        ...mapMutations(['eliminarProducto'])
+        ...mapMutations(['eliminarProducto', 'retornarProductos'])
     },
     watch: {},
     props: {}
@@ -102,7 +102,8 @@ h2 {
 }
 
 .trash{
-    all:unset
+    all:unset;
+    cursor: pointer;
 }
 .fa-trash-can:hover {
     color: #00f3ae;
