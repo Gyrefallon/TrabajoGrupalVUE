@@ -3,7 +3,7 @@
 	<LogoutConfirmation/>
     <div class="container">
 			<div class="row g-3">
-				<div v-for="fila in productos" :key="fila.id" class="card col-md-3" @click="mostrarDescripcion(fila)" >
+				<div v-for="fila in productillos" :key="fila.id" class="card col-md-3" @click="mostrarDescripcion(fila)" >
 					<div class="card-body" data-bs-toggle="modal" data-bs-target="#descripcionProducto">
 						<img :src= "fila.imagen" class="card-img-top" alt="placa">
 							<h2 class="card-title">{{ fila.nombre }}</h2>
@@ -54,6 +54,7 @@ export default {
 		return {
 			descripcionActual: '',
 			tituloActual: '',
+			productillos: [],
 		}
 	},
 	computed: {
@@ -66,7 +67,19 @@ export default {
 			this.tituloActual = producto.nombre
 		}
     },
-	
+	created: async function() {
+        try{
+            let response = await this.productos;
+            this.productillos = response;
+        }catch(error){
+            this.errorMessage = error;
+        }
+    },
+	watch: {
+		productos() {
+			this.productillos = this.productos
+		}
+	}
 };
 </script>
   
