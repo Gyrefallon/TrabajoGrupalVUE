@@ -102,7 +102,8 @@ h2 {
 }
 
 .trash{
-    all:unset
+    all:unset;
+    cursor:pointer
 }
 .fa-trash-can:hover {
     color: #00f3ae;
