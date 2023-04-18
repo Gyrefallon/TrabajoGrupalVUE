@@ -16,9 +16,9 @@ export default createStore({
         // agregarProducto(state, payload){
         //     state.carro.push(payload)
         // }
-        async anadirProducto(state, payload) {
-                const chequearExistencia = state.carro.some((element) => {
-                return payload.id === element.id
+        anadirProducto(state, payload) {
+            const chequearExistencia = state.carro.some((element) => {
+            return payload.id === element.id
             })
             if (chequearExistencia) {
                 payload.cantidad++
