@@ -92,8 +92,8 @@ export class Products {
     },
     {
       "id": "A10",
-      "nombre": "UNIDAD DE ESTADO SOLIDO WD GREEN 1 TB",
-      "descripcion": "Producto Stock",
+      "nombre": "PRODUCTO DUMMY PARA TOCK",
+      "descripcion": "Producto Prueba Stock",
       "precio": "55990",
       "stock": "0",
       "etiqueta": "WD UNIDAD DE ESTADO SOLIDO",
