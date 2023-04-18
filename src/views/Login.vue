@@ -80,5 +80,26 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.h3 {
+    margin-top: .5em!important
+}
+.card-header {
+    background-color: rgb(33, 33, 33)!important;
+}
+
+.btn-success {
+	background-color: rgb(39, 39, 39) !important;
+	border: 0 !important;
+}
+
+.btn-success:hover {
+	cursor: pointer;
+	color: #00f3ae;
+	background-color: rgb(48, 48, 48) !important;
+
+
+}
+</style>
 
